@@ -1,0 +1,12 @@
+
+Copilot AI:n pystyttäminen githubiin aiheutti lieviä ongelmia. Github on vaativa sille annettujen tietojen kanssa, ja tietojen tulee
+olla täsmällisiä.
+
+Kun githubiin on rekisteröitynyt opiskelijaksi, opiskelija status astuu voimaan kolmen päivän viiveellä. 
+
+Copilotin linkittäminen vs codeen oli tämän jälkeen helppoa, sillä kirjautumalla github käyttäjällä asetukset astuvat voimaan
+automaattisesti. 
+
+Agentin liittäminen vaati hieman tiedon etsintää, mutta tämäkin onnistui jotenkin. Tosin pienin epävarmuuksin, kuten onko
+agentti varmasti luotu oikealla tavalla oikeaan paikkaan.
+
