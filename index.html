@@ -74,6 +74,21 @@
         //
         // ===================================
 
+        // ===== GAME LOOP =====
+        const updateGame = () => {
+            const head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
+
+            snake.unshift(head);
+            snake.pop();
+        };
+        
+        setInterval(() => {
+            updateGame();
+            drawGame();
+        }, 100);
+
+        // ===== KEYBOARD CONTROLS =====
+    
     </script>
 
 </body>
