@@ -10,3 +10,16 @@ automaattisesti.
 Agentin liittäminen vaati hieman tiedon etsintää, mutta tämäkin onnistui jotenkin. Tosin pienin epävarmuuksin, kuten onko
 agentti varmasti luotu oikealla tavalla oikeaan paikkaan.
 
+Tekoäly agentti on ollut avulias AI projektia tehdessä, mutta siitä on myös ollut harmia.
+Agentilla on taipumusta muuttaa ohjelmakoodia myös chatin kautta, joka vaikeuttaa itse oman
+ohjelmakoodin tuottamista. Ohjelmakoodia täytyy uudelleen opetella, kun agentti on muuttanut
+koodia joksikin muuksi.
+
+Agentin avulla on ollut helppo ymmärtää ja napata luodusta html koodista elementtejä, sekä
+hyödyntää niitä.
+
+Olen ohjelmakoodia luodessa --- pääasiassa versionhallintaa varten --- luonut eri ohjelmakoodin osista
+omia branchejä, jotta "main" koodi psysyisi bugeista irrallisena.
+Muutamassa tapauksessa olen säästänyt aikaa unohtamalla branchin, joka ei ole kelvannut.
+Branhit ovat olleet myös hyviä testipaikkoja uusia feat-malleja varten.
+
