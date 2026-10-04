@@ -9,6 +9,7 @@
             border: 1px solid black;
         }
     </style>
+    <button id="button" width="20" height="10">button</button>
 </head>
 <body>
 
@@ -33,6 +34,7 @@
         let direction = { x: 1, y: 0 };
         let food = { x: 15, y: 15 };
         let score = 0;
+        let gameOver = false;
 
         // ===== DRAWING =====
         const drawGame = () => {
@@ -74,11 +76,17 @@
         //
         // ===================================
 
+
+        // reset function
+        const resetGame = () => {
+            snake = [{ x: 10, y: 10 }, { x: 9, y: 10 }, { x: 8, y: 10 }];
+            direction = { x: 1, y: 0 }; score = 0; gameOver = false; drawGame();
+        };
+
         // ===== GAME LOOP =====
         
 
         const updateGame = () => {
-            let gameOver = false;
             if (gameOver) return;
 
             const head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
@@ -136,9 +144,9 @@
                 console.log("left")
                 }
             }
+            if (event.key === "Enter" && gameOver) {resetGame()};
         });
-    
-
+        
     </script>
 
 </body>

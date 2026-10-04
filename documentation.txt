@@ -23,3 +23,7 @@ omia branchejä, jotta "main" koodi psysyisi bugeista irrallisena.
 Muutamassa tapauksessa olen säästänyt aikaa unohtamalla branchin, joka ei ole kelvannut.
 Branhit ovat olleet myös hyviä testipaikkoja uusia feat-malleja varten.
 
+Projektia tehdessä huomasin, että olen unohtanut agentin lisäämisen yhteydessä enabloida custom agentin.
+Olen vahingossa toteuttanut osan koodia Copilot-agentin avulla, enkä tehtävän antamalla
+custom agentilla.
+
