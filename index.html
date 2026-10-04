@@ -75,26 +75,44 @@
         // ===================================
 
         // ===== GAME LOOP =====
+        
+
         const updateGame = () => {
+            let gameOver = false;
+            if (gameOver) return;
+
             const head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
+
+            // check wall collision
+            const hitsWall = head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount;
+
+            // check self collision
+            const hitsSelf = snake.some(segment => segment.x === head.x && segment.y === head.y);
+            if (hitsWall || hitsSelf) {
+                gameOver = true;
+                document.getElementById("info").textContent = `Game over! Score: ${score}`;
+                return;
+            }
+
             snake.unshift(head);
 
             // eating and growing
-            if(head.x === food.x && head.y === food.y) {
-                score++
-                food.x = Math.floor(Math.random() * 20)
-                food.y = Math.floor(Math.random() * 20)
-
+            if (head.x === food.x && head.y === food.y) {
+                score++;
+                food.x = Math.floor(Math.random() * tileCount);
+                food.y = Math.floor(Math.random() * tileCount);
             } else {
                 snake.pop();
             }
         };
         
+
         setInterval(() => {
             updateGame();
             drawGame();
         }, 100);
 
+        
         // ===== KEYBOARD CONTROLS =====
         window.addEventListener("keydown", (event) => {
             if (event.key === "ArrowUp") {
