@@ -9,13 +9,16 @@
             border: 1px solid black;
         }
     </style>
-    <button id="button" width="20" height="10">button</button>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <h1>Snake</h1>
     <canvas id="gameCanvas" width="400" height="400"></canvas>
     <p id="info"></p>
+    <h3 id="press"></h3>
+    <button id="start" width="50" height="30">Start</button>
+    <button id="button" width="20" height="10">Scoreboard</button>
 
     <script>
         // ===== GAME SETUP =====
@@ -35,6 +38,7 @@
         let food = { x: 15, y: 15 };
         let score = 0;
         let gameOver = false;
+        
 
         // ===== DRAWING =====
         const drawGame = () => {
@@ -81,6 +85,8 @@
         const resetGame = () => {
             snake = [{ x: 10, y: 10 }, { x: 9, y: 10 }, { x: 8, y: 10 }];
             direction = { x: 1, y: 0 }; score = 0; gameOver = false; drawGame();
+            document.getElementById("info").textContent = '';
+            document.getElementById("press").textContent = '';
         };
 
         // ===== GAME LOOP =====
@@ -99,6 +105,7 @@
             if (hitsWall || hitsSelf) {
                 gameOver = true;
                 document.getElementById("info").textContent = `Game over! Score: ${score}`;
+                document.getElementById("press").textContent = 'Press "Enter" to restart'
                 return;
             }
 
