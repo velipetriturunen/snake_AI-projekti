@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake Game</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 
 <body>
@@ -12,8 +13,13 @@
     <canvas id="gameCanvas" width="400" height="400"></canvas>
     <p id="info"></p>
     <h3 id="press"></h3>
-    <button id="start" width="50" height="30">Start</button>
-    <button id="button" width="20" height="10">Scoreboard</button>
+    <dialog id="scoreDialog">
+        <h2>Highscore</h2>
+        <p id="highscoreText">Highscore: </p>
+    <button id="closeScore" width="20" height="10">close</button>
+    </dialog>
+
+    <button id="openScore" width="20" height="10">Scoreboard</button>
 
     <script>
         // ===== GAME SETUP =====
@@ -22,6 +28,11 @@
         const ctx = canvas.getContext("2d");
         const gridSize = 20;
         const tileCount = canvas.width / gridSize;
+
+        const scoreDialog = document.getElementById("scoreDialog");
+        const scoreButton = document.getElementById("openScore");
+        const closeScore = document.getElementById("closeScore")
+        const highScoreText = document.getElementById("highscoreText");
 
         // ===== INITIAL STATE =====
         let snake = [
@@ -32,6 +43,7 @@
         let direction = { x: 1, y: 0 };
         let food = { x: 15, y: 15 };
         let score = 0;
+        let highScore = 0;
         let gameOver = false;
         
 
@@ -106,6 +118,10 @@
             // eating and growing
             if (head.x === food.x && head.y === food.y) {
                 score++;
+                if (score > highScore) {
+                    highScore = score;
+                    highScoreText.textContent = `Highscore: ${highScore}`;
+                }
                 food.x = Math.floor(Math.random() * tileCount);
                 food.y = Math.floor(Math.random() * tileCount);
             } else {
@@ -120,7 +136,7 @@
         }, 100);
 
         
-        // ===== KEYBOARD CONTROLS =====
+        // ===== KEYBOARD CONTROLS && listeners=====
         window.addEventListener("keydown", (event) => {
             if (event.key === "ArrowUp") {
                 if (direction.y ==! 1) {
@@ -144,6 +160,14 @@
                 }
             }
             if (event.key === "Enter" && gameOver) {resetGame()};
+        });
+
+        scoreButton.addEventListener("click", () => {
+            scoreDialog.showModal();
+        });
+
+        closeScore.addEventListener("click", () => {
+            scoreDialog.close();
         });
         
     </script>
